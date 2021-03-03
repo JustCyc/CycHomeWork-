@@ -4,14 +4,20 @@ namespace GetFullName
 {
     class Program
     {
-
         static void Main(string[] args)
         {
-            Console.WriteLine("Введите количество пользователей для записи ФИО");
+            Console.WriteLine("Введите количество пользователей");
             int count = int.Parse(Console.ReadLine());
-            for (int i = 0; i < count; i++)
+            string[] nameList = new string[count];
+            
+            for (int i = 0; i < nameList.Length; i++)
             {
-                Console.WriteLine(GetFullName());
+                string Name = GetFullName();
+                nameList[i] = Name;
+            }
+            for (int i = 0; i < nameList.Length; i++)
+            {
+                Console.WriteLine(nameList[i]);
             }
             Console.WriteLine("\nКонец программы\n");
             Console.ReadKey();
@@ -19,17 +25,15 @@ namespace GetFullName
 
         static string GetFullName()
         {
-
-            Console.WriteLine("Введите фамилию");
+            Console.WriteLine("\nВведите фамилию");
             string lastName = Console.ReadLine();
-            Console.WriteLine("Введите имя");
+            Console.WriteLine("\nВведите имя");
             string firstName = Console.ReadLine();
-            Console.WriteLine("Введите отчество");
+            Console.WriteLine("\nВведите отчество");
             string patronymic = Console.ReadLine();
             string fullFio = lastName + " " + firstName + " " + patronymic;
-            return $"\nВведенное ФИО - {fullFio}\n";
+            return $"\nВведенное ФИО пользователя - {fullFio}\n";
         }
-
     }
 }
 
