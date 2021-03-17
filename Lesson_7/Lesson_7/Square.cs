@@ -6,9 +6,9 @@ namespace Lesson_7
 {
     class Square
     {
-        static public int square(int a)
+        static public int square(int num)
         {
-            int square = a * a;
+            int square = num * num;
             return square;
         }
     }
