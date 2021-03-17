@@ -31,20 +31,31 @@ namespace Lesson_6
             }
 
 
-            //Employee[] empArray = new Employee[5];
-            //for (int i = 0; i < empArray.Length; i++)
-            //{
-            //    empArray[i] = new Employee("Иванов", "кто", "e", "123", 1200, 30);
-            //    empArray[i] = new Employee("Иванов", "кто", "e", "123", 1200, 20);
-            //    empArray[i] = new Employee("Иванов", "кто", "e", "123", 1200, 40);
-            //    empArray[i] = new Employee("Иванов", "кто", "e", "123", 1200, 45);
-            //    empArray[i] = new Employee("Иванов", "кто", "e", "123", 1200, 32);
-            //}
-            //Console.WriteLine(Employee.SelectEmployee(empArray));
+            Employee[] empArray = new Employee[5];
+            for (int i = 0; i < empArray.Length; i++)
+            {
+                empArray[i] = new Employee();
+                empArray[i].Name = Console.ReadLine();
+                empArray[i].Position = Console.ReadLine();
+                empArray[i].Email = Console.ReadLine();
+                empArray[i].TelNumber = Console.ReadLine();
+                empArray[i].Salary = int.Parse(Console.ReadLine());
+                empArray[i].Age = int.Parse(Console.ReadLine());
+            }
+
+            List<Employee> employeeList = new List<Employee>(Employee.SelectEmployee(empArray));
+            foreach (Employee property in employeeList)
+            {
+                Console.WriteLine($" Имя работника: {property.Name}\n " +
+                    $"Должность: {property.Position}\n " +
+                    $"Email: {property.Email}\n " +
+                    $"Телефонный номер: {property.TelNumber}\n " +
+                    $"Зарплата: {property.Salary}\n " +
+                    $"Возраст: {property.Age}");
+            }
 
 
-
-                Console.ReadKey();
+            Console.ReadKey();
         }
     }
 }
